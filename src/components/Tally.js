@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 import React, { Component } from 'react'
 import qs from 'query-string'
 import classNames from 'classnames'
