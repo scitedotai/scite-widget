@@ -2,11 +2,12 @@ var path = require('path')
 
 module.exports = {
   mode: 'production',
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve('lib'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   module: {
     rules: [
@@ -16,5 +17,19 @@ module.exports = {
         use: 'babel-loader'
       }
     ]
+  },
+  externals: {
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React'
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM'
+    }
   }
 }
