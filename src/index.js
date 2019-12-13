@@ -1,2 +1,6 @@
 import Tally from './components/Tally'
-export { Tally }
+import Count from './components/Count'
+import TextLogo from './components/TextLogo'
+import './styles/index.css'
+
+export { Tally, Count, TextLogo }

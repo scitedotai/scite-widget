@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import qs from 'query-string'
 import classNames from 'classnames'
 import Count from './Count'
+import TextLogo from './TextLogo'
 const { fetch } = window
+
+import '../styles/Tally.css'
 
 class Tally extends Component {
   constructor (props) {
@@ -93,7 +96,7 @@ class Tally extends Component {
         className={classes.tally}
         onClick={this.handleClick}
       >
-        {!horizontal && <span className='scite-title title'>scite_</span>}
+        {!horizontal && <TextLogo />}
 
         <Count type='supporting' count={supporting} horizontal={horizontal} />
         <Count type='mentioning' count={mentioning} horizontal={horizontal} />

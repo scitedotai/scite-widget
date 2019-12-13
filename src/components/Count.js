@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import '../styles/Count.css'
 
 const iconClasses = type => `scite-icon scite-icon-${type}`
 export const Count = ({ horizontal, type, count }) => (
