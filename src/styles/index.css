@@ -1,19 +1,1 @@
 @import './typography.css';
-
-.scite-button {
-    display: inline-block;
-    background-color: #007aff;;
-
-    border-radius: 20px;
-
-    padding: 4px 8px;
-
-    color: white;
-    text-decoration: none;
-
-    transition: background-color 200ms ease-in-out;
-}
-
-.scite-button:hover {
-    background-color: #4da3ff;
-}

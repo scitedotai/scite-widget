@@ -1,4 +1,4 @@
-import 'whatwg-fetch'
+import '../styles/Tally.css'
 
 import React, { Component } from 'react'
 import qs from 'query-string'
@@ -7,60 +7,10 @@ import Count from './Count'
 import TextLogo from './TextLogo'
 const { fetch } = window
 
-import '../styles/Tally.css'
-
 class Tally extends Component {
   constructor (props) {
     super(props)
-
-    this.state = {
-      tally: null
-    }
     this.handleClick = this.handleClick.bind(this)
-    this.fetchReport = this.fetchReport.bind(this)
-  }
-
-  componentDidMount () {
-    this.fetchReport()
-  }
-
-  fetchReport (retry = 0, maxRetries = 8) {
-    const { doi } = this.props
-
-    const fetchFailed = new Error('Failed to get Tally')
-
-    fetch(`https://api.scite.ai/tallies/${doi}`)
-      .then(response => {
-        if (response.status === 404) {
-          // Then we will set a 0 tally
-          this.setState({
-            tally: {
-              doi,
-              total: 0
-            }
-          })
-          return {}
-        }
-
-        if (!response.ok) {
-          throw fetchFailed
-        }
-
-        return response.json()
-      })
-      .then(tally => {
-        if (typeof tally.total === 'number') {
-          /* scheduleUpdate hack needed to get the position right for me */
-          this.setState({ tally }, () => this.scheduleUpdate && this.scheduleUpdate())
-        }
-      })
-      .catch(e => {
-        if (e === fetchFailed && retry < maxRetries) {
-          return setTimeout(() => this.fetchReport(++retry, maxRetries), 1200)
-        }
-
-        console.error(e)
-      })
   }
 
   get queryString () {
@@ -81,8 +31,7 @@ class Tally extends Component {
   }
 
   render () {
-    const { horizontal, showZero } = this.props
-    const { tally } = this.state
+    const { horizontal, showZero, tally } = this.props
     const classes = {
       tally: classNames('scite-tally', {
         '-horizontal': horizontal,
