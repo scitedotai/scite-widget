@@ -3,10 +3,10 @@ import classNames from 'classnames'
 import '../styles/Count.css'
 
 const iconClasses = type => `scite-icon scite-icon-${type}`
-export const Count = ({ horizontal, type, count }) => (
+export const Count = ({ className, horizontal, type, count }) => (
   <div
     className={
-      classNames('scite-tally-count', {
+      classNames('scite-tally-count', className, {
         '-horizontal': horizontal
       })
     }
