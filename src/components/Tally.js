@@ -26,7 +26,7 @@ class Tally extends Component {
   }
 
   handleClick () {
-    const { doi } = this.props
+    const { tally: { doi } } = this.props
     window.open(`https://scite.ai/reports/${doi}?${this.queryString}`)
   }
 
