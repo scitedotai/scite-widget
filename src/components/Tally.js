@@ -30,7 +30,7 @@ class Tally extends Component {
   }
 
   render () {
-    const { horizontal, showZero, tally } = this.props
+    const { horizontal, showZero, showLabels, tally } = this.props
     const classes = {
       tally: classNames('scite-tally', styles.tally, {
         [styles.horizontal]: horizontal,
@@ -48,9 +48,9 @@ class Tally extends Component {
       >
         {!horizontal && <TextLogo className={styles.title} />}
 
-        <Count type='supporting' count={supporting} horizontal={horizontal} />
-        <Count type='mentioning' count={mentioning} horizontal={horizontal} />
-        <Count type='contradicting' count={contradicting} horizontal={horizontal} />
+        <Count type='supporting' count={supporting} horizontal={horizontal} showLabels={showLabels} />
+        <Count type='mentioning' count={mentioning} horizontal={horizontal} showLabels={showLabels} />
+        <Count type='contradicting' count={contradicting} horizontal={horizontal} showLabels={showLabels} />
       </div>
     )
   }
