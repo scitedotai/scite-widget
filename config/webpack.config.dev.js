@@ -1,19 +1,15 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const TerserJSPlugin = require('terser-webpack-plugin')
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
+  watch: true,
   entry: './src/index.js',
   output: {
     path: path.resolve('lib'),
     filename: 'index.js',
     libraryTarget: 'umd',
     umdNamedDefine: true
-  },
-  optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
   },
   module: {
     rules: [
@@ -31,7 +27,14 @@ module.exports = {
               hmr: process.env.NODE_ENV === 'development'
             }
           },
-          'css-loader'
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]'
+              }
+            }
+          }
         ]
       }
     ]

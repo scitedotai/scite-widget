@@ -1,9 +1,9 @@
-.scite-tally * {
+.tally * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.scite-tally {
+.tally {
     line-height: 1.5;
     padding: 8px;
     padding-right: 12px;
@@ -30,22 +30,22 @@
     flex-direction: column;
 }
 
-.scite-tally.-horizontal {
+.horizontal {
     padding: 0 8px;
     flex-direction: row;
     height: 100%;
 }
 
-.scite-tally.-show {
+.show {
     opacity: 1;
     pointer-events: auto;
 }
 
-.scite-tally:hover {
+.tally:hover {
     background-color: #F4F4F4;
 }
 
-.scite-tally > .title {
+.title {
     display: block;
     margin-bottom: 8px;
 }

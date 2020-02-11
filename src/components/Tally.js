@@ -1,11 +1,10 @@
-import '../styles/Tally.css'
-
 import React, { Component } from 'react'
 import qs from 'query-string'
 import classNames from 'classnames'
 import Count from './Count'
 import TextLogo from './TextLogo'
-const { fetch } = window
+
+import styles from '../styles/Tally.css'
 
 class Tally extends Component {
   constructor (props) {
@@ -33,9 +32,9 @@ class Tally extends Component {
   render () {
     const { horizontal, showZero, tally } = this.props
     const classes = {
-      tally: classNames('scite-tally', {
-        '-horizontal': horizontal,
-        '-show': showZero ? tally : tally && tally.total > 0
+      tally: classNames('scite-tally', styles.tally, {
+        [styles.horizontal]: horizontal,
+        [styles.show]: showZero ? tally : tally && tally.total > 0
       })
     }
     const supporting = (tally && tally.supporting) || 0
@@ -47,7 +46,7 @@ class Tally extends Component {
         className={classes.tally}
         onClick={this.handleClick}
       >
-        {!horizontal && <TextLogo />}
+        {!horizontal && <TextLogo className={styles.title} />}
 
         <Count type='supporting' count={supporting} horizontal={horizontal} />
         <Count type='mentioning' count={mentioning} horizontal={horizontal} />

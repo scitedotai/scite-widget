@@ -1,0 +1,29 @@
+.icon {
+    font-family: 'scite-icons' !important;
+    speak: none;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+}
+
+.unclassified:before {
+    content: "\e80a";
+    color: #828179;
+}
+
+.contradicting:before {
+    content: "\e80a";
+    color: #F39C12;
+}
+
+.mentioning:before {
+    content: "\e902";
+    color: #393F43;
+}
+
+.supporting:before {
+    content: "\e903";
+    color: #2ECC71;
+}
