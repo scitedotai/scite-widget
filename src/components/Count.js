@@ -13,7 +13,13 @@ export const Count = ({ className, horizontal, type, count, showLabels = false }
   >
     {showLabels && <span className={styles.label}>{type}</span>}
 
-    <div className={styles.iconCountWrapper}>
+    <div
+      className={
+        classNames(styles.iconCountWrapper, {
+          [styles.expandedIconCount]: !showLabels
+        })
+      }
+    >
       <Icon type={type} />
       <span className={styles.number}>{count}</span>
     </div>
