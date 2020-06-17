@@ -38,7 +38,7 @@ class Tally extends Component {
       })
     }
     const supporting = (tally && tally.supporting) || 0
-    const contradicting = (tally && tally.contradicting) || 0
+    const disputing = (tally && tally.contradicting) || 0
     const mentioning = (tally && tally.mentioning) || 0
 
     return (
@@ -50,7 +50,7 @@ class Tally extends Component {
 
         <Count type='supporting' count={supporting} horizontal={horizontal} showLabels={showLabels} />
         <Count type='mentioning' count={mentioning} horizontal={horizontal} showLabels={showLabels} />
-        <Count type='contradicting' count={contradicting} horizontal={horizontal} showLabels={showLabels} />
+        <Count type='disputing' count={disputing} horizontal={horizontal} showLabels={showLabels} />
       </div>
     )
   }
