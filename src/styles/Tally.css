@@ -50,4 +50,5 @@
     display: block;
     margin-bottom: 8px;
     width: 4em;
+    max-width: 4em;
 }
