@@ -10,7 +10,7 @@
 
     color: #0E1D1A;
     background-color: white;
-    font-family: "Circular";
+    font-family: 'IBM Plex Sans', sans-serif;
 
     /* Something of a hack so we can avoid
        setting overflow: 'hidden' on the
@@ -45,7 +45,9 @@
     background-color: #F4F4F4;
 }
 
-.title {
+.logo {
     display: block;
     margin-bottom: 8px;
+    width: 100%;
+    min-width: 4rem;
 }
