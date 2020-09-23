@@ -11,6 +11,7 @@
     color: #0E1D1A;
     background-color: white;
     font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
 
     /* Something of a hack so we can avoid
        setting overflow: 'hidden' on the
@@ -48,6 +49,5 @@
 .logo {
     display: block;
     margin-bottom: 8px;
-    width: 100%;
-    min-width: 4rem;
+    width: 4em;
 }
