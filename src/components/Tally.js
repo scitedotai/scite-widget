@@ -36,9 +36,9 @@ class Tally extends Component {
         [styles.show]: showZero ? tally : tally && tally.total > 0
       })
     }
-    const supporting = (tally && tally.supporting) || 0
-    const disputing = (tally && tally.contradicting) || 0
-    const mentioning = (tally && tally.mentioning) || 0
+    const supporting = (tally && tally.supporting.toLocaleString()) || 0
+    const disputing = (tally && tally.contradicting.toLocaleString()) || 0
+    const mentioning = (tally && tally.mentioning.toLocaleString()) || 0
 
     return (
       <div
