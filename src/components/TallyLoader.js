@@ -39,7 +39,7 @@ function fetchTally ({ doi, setTally, setError, retry = 0, maxRetries = 8 } = {}
 
 function fetchNotices ({ doi, setNotices, setError, retry = 0, maxRetries = 8 } = {}) {
   const fetchFailed = new Error('Failed to get notices')
-  fetch(`http://localhost:8000/papers/${doi}`)
+  fetch(`https://api.scite.ai/papers/${doi}`)
     .then(response => {
       if (response.status === 404) {
         // Then we will set a notices to []
