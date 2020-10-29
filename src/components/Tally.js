@@ -29,7 +29,7 @@ class Tally extends Component {
   }
 
   render () {
-    const { horizontal, showZero, showLabels, tally,  notices, showNotices } = this.props
+    const { horizontal, showZero, showLabels, tally, notices, showNotices } = this.props
     const classes = {
       tally: classNames('scite-tally', styles.tally, {
         [styles.horizontal]: horizontal,
@@ -60,7 +60,7 @@ Tally.defaultProps = {
   horizontal: false,
   isBadge: false,
   showZero: true,
-  showNotices: true,
+  showNotices: true
 }
 
 export default Tally

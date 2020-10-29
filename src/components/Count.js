@@ -12,11 +12,11 @@ export const Count = ({ className, horizontal, type, count, showLabels = false }
     }
   >
     {showLabels && (
-      type === 'notices' ?
-        <span className={styles.label}>editorial notices</span>
-      : (
-        <span className={styles.label}>{type}</span>
-      )
+      type === 'notices'
+        ? <span className={styles.label}>editorial notices</span>
+        : (
+          <span className={styles.label}>{type}</span>
+        )
     )}
 
     <div

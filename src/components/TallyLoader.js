@@ -1,5 +1,5 @@
 import 'whatwg-fetch'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react' // eslint-disable-line
 
 const { fetch } = window
 
@@ -30,7 +30,7 @@ function fetchTally ({ doi, setTally, setError, retry = 0, maxRetries = 8 } = {}
     })
     .catch(e => {
       if (e === fetchFailed && retry < maxRetries) {
-        return setTimeout(() => fetchTally({retry: ++retry, doi, setTally, setError, maxRetries}), 1200)
+        return setTimeout(() => fetchTally({ retry: ++retry, doi, setTally, setError, maxRetries }), 1200)
       }
 
       setError(e)
@@ -59,7 +59,7 @@ function fetchNotices ({ doi, setNotices, setError, retry = 0, maxRetries = 8 } 
     })
     .catch(e => {
       if (e === fetchFailed && retry < maxRetries) {
-        return setTimeout(() => fetchNotices({retry: ++retry, doi, maxRetries, setError, setNotices}), 1200)
+        return setTimeout(() => fetchNotices({ retry: ++retry, doi, maxRetries, setError, setNotices }), 1200)
       }
 
       setError(e)
