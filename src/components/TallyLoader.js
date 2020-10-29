@@ -30,7 +30,7 @@ function fetchTally ({ doi, setTally, setError, retry = 0, maxRetries = 8 } = {}
     })
     .catch(e => {
       if (e === fetchFailed && retry < maxRetries) {
-        return setTimeout(() => this.fetchReport(++retry, maxRetries), 1200)
+        return setTimeout(() => fetchTally({retry: ++retry, doi, setTally, setError, maxRetries}), 1200)
       }
 
       setError(e)
@@ -59,7 +59,7 @@ function fetchNotices ({ doi, setNotices, setError, retry = 0, maxRetries = 8 } 
     })
     .catch(e => {
       if (e === fetchFailed && retry < maxRetries) {
-        return setTimeout(() => this.fetchReport(++retry, maxRetries), 1200)
+        return setTimeout(() => fetchNotices({retry: ++retry, doi, maxRetries, setError, setNotices}), 1200)
       }
 
       setError(e)
