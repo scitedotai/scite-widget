@@ -11,6 +11,7 @@ const Template = (args) => <>
   <Count type='supporting' count={50} {...args} />
   <Count type='mentioning' count={50} {...args} />
   <Count type='disputing' count={50}  {...args} />
+  <Count type='notices'  {...args} />
 </>;
 
 export const Basic = Template.bind({});

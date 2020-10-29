@@ -27,3 +27,8 @@
     content: "\e903";
     color: #2ECC71;
 }
+
+.notices:before {
+    content: "\e901";
+    color: #FF3B30;
+}

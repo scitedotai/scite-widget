@@ -15,6 +15,7 @@ const tally = {
 
 const Template = (args) => <Tally
   tally={tally}
+  notices={[{'status': 'retracted'}]}
   {...args}
 />;
 
