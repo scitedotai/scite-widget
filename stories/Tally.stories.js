@@ -1,34 +1,35 @@
-import React from 'react';
+import React from 'react'
 
-import { Tally } from '../src';
+import { Tally } from '../src'
 
 export default {
   title: 'Tally',
-  component: Tally,
-};
+  component: Tally
+}
 
 const tally = {
   supporting: 1,
   contradicting: 2,
-  mentioning: 0,
+  mentioning: 0
 }
 
-const Template = (args) => <Tally
-  tally={tally}
-  {...args}
-/>;
+const Template = (args) => (
+  <Tally
+    tally={tally}
+    notices={[{ status: 'retracted' }]}
+    {...args}
+  />)
 
-
-export const Basic = Template.bind({});
-export const Horizontal = Template.bind({});
+export const Basic = Template.bind({})
+export const Horizontal = Template.bind({})
 Horizontal.args = {
   horizontal: true
 }
-export const ShowZero = Template.bind({});
+export const ShowZero = Template.bind({})
 ShowZero.args = {
   showZero: true
 }
-export const ShowLabels = Template.bind({});
+export const ShowLabels = Template.bind({})
 ShowLabels.args = {
   showLabels: true
 }

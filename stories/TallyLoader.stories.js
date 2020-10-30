@@ -1,14 +1,23 @@
-import React from 'react';
+import React from 'react'
 
-import { TallyLoader, Tally } from '../src';
+import { TallyLoader, Tally } from '../src'
 
 export default {
   title: 'TallyLoader',
-  component: TallyLoader,
-};
+  component: TallyLoader
+}
 
-const Template = (args) => <TallyLoader doi='10.1016/j.biopsych.2005.08.012'>
-    {({ tally }) => <Tally tally={tally} />}
-  </TallyLoader>;
+const Template = (args) => (
+  <TallyLoader {...args}>
+    {({ tally, notices }) => <Tally tally={tally} notices={notices} />}
+  </TallyLoader>)
 
-export const TallyLoaded = Template.bind({});
+export const TallyLoaded = Template.bind({})
+TallyLoaded.args = {
+  doi: '10.1016/j.biopsych.2005.08.012'
+}
+
+export const TallyLoadedRetractionNotice = Template.bind({})
+TallyLoadedRetractionNotice.args = {
+  doi: '10.1038/nature10167'
+}
