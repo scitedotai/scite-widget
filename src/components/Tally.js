@@ -29,16 +29,17 @@ class Tally extends Component {
   }
 
   render () {
-    const { horizontal, showZero, showLabels, tally, notices, showNotices } = this.props
+    const { horizontal, showZero, showLabels, tally, notices } = this.props
     const classes = {
       tally: classNames('scite-tally', styles.tally, {
         [styles.horizontal]: horizontal,
         [styles.show]: showZero ? tally : tally && tally.total > 0
       })
     }
-    const supporting = (tally && tally.supporting.toLocaleString()) || 0
-    const disputing = (tally && tally.contradicting.toLocaleString()) || 0
-    const mentioning = (tally && tally.mentioning.toLocaleString()) || 0
+    const supporting = (tally && tally.supporting && tally.supporting.toLocaleString()) || 0
+    const disputing = (tally && tally.contradicting && tally.contradicting.toLocaleString()) || 0
+    const mentioning = (tally && tally.mentioning && tally.mentioning.toLocaleString()) || 0
+    const noticeCount = (notices && notices.length && notices.length.toLocaleString()) || 0
 
     return (
       <div
@@ -50,7 +51,7 @@ class Tally extends Component {
         <Count type='supporting' count={supporting} horizontal={horizontal} showLabels={showLabels} />
         <Count type='mentioning' count={mentioning} horizontal={horizontal} showLabels={showLabels} />
         <Count type='disputing' count={disputing} horizontal={horizontal} showLabels={showLabels} />
-        {showNotices && notices && notices.length > 0 && <Count type='notices' horizontal={horizontal} showLabels={showLabels} />}
+        {notices && notices.length > 0 && <Count type='notices' count={noticeCount} horizontal={horizontal} showLabels={showLabels} />}
       </div>
     )
   }
@@ -59,8 +60,7 @@ class Tally extends Component {
 Tally.defaultProps = {
   horizontal: false,
   isBadge: false,
-  showZero: true,
-  showNotices: true
+  showZero: true
 }
 
 export default Tally

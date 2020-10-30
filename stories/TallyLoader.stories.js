@@ -19,5 +19,5 @@ TallyLoaded.args = {
 
 export const TallyLoadedRetractionNotice = Template.bind({})
 TallyLoadedRetractionNotice.args = {
-  doi: '10.1371/journal.ppat.0020025'
+  doi: '10.1038/nature10167'
 }

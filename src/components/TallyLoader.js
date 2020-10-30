@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react' // eslint-disable-line
 
 const { fetch } = window
 
+const NOTICE_STATUSES = ['retracted', 'has expression of concern', 'withdrawn', 'has erratum', 'has correction']
+
 function fetchTally ({ doi, setTally, setError, retry = 0, maxRetries = 8 } = {}) {
   const fetchFailed = new Error('Failed to get Tally')
   fetch(`https://api.scite.ai/tallies/${doi}`)
@@ -55,7 +57,11 @@ function fetchNotices ({ doi, setNotices, setError, retry = 0, maxRetries = 8 } 
       return response.json()
     })
     .then(({ editorialNotices }) => {
-      setNotices(editorialNotices)
+      // Filter out statuses that are not interesting and remove duplicates.
+      const notices = [...new Set(editorialNotices
+        .filter(({ status }) => NOTICE_STATUSES.includes(status.toLowerCase()))
+        .map(({ status }) => status))]
+      setNotices(notices)
     })
     .catch(e => {
       if (e === fetchFailed && retry < maxRetries) {
