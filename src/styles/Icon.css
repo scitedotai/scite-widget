@@ -5,7 +5,7 @@
     font-weight: normal !important;
     font-variant: normal !important;
     text-transform: none !important;
-    line-height: 1 !important;
+    line-height: 1.5 !important;
 }
 
 .unclassified:before {
@@ -31,4 +31,8 @@
 .notices:before {
     content: "\e901";
     color: #FF3B30;
+}
+
+.smallIcon {
+  line-height: 1rem !important;
 }

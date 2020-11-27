@@ -9,6 +9,10 @@
     margin-right: 12px;
 }
 
+.smallLabel {
+    margin-right: 6px;
+}
+
 .iconCountWrapper {
     display: inline-block;
     box-sizing: border-box;
@@ -25,6 +29,10 @@
     margin-left: 8px;
 }
 
+.smallNumber {
+    margin-left: 6px;
+}
+
 .horizontal {
     border-left: 1px solid #cfcfcf;;
     padding: 4px 8px;
@@ -36,4 +44,9 @@
 
 .horizontal > .label {
     width: auto;
+}
+
+.small {
+  font-size: 10px;
+  padding: 2px 4px;
 }

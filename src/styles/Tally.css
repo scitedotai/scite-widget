@@ -52,3 +52,13 @@
     width: 4em;
     max-width: 4em;
 }
+
+.logoSmall {
+    width: 3em;
+    max-width: 3em;
+    padding-left: 4px;
+}
+
+.small {
+  padding: 0 4px;
+}
