@@ -3,16 +3,21 @@ import classNames from 'classnames'
 import Icon from './Icon'
 import styles from '../styles/Count.css'
 
-export const Count = ({ className, horizontal, type, count, showLabels = false }) => (
+export const Count = ({ className, horizontal, type, count, showLabels = false, small = false }) => (
   <div
     className={
       classNames(styles.count, className, {
-        [styles.horizontal]: horizontal
+        [styles.horizontal]: horizontal,
+        [styles.small]: small
       })
     }
   >
     {showLabels &&
-      <span className={styles.label}>{type}</span>}
+      <span className={classNames(styles.label, {
+        [styles.smallLabel]: small
+      })}
+      >{type}
+      </span>}
 
     <div
       className={
@@ -21,8 +26,12 @@ export const Count = ({ className, horizontal, type, count, showLabels = false }
         })
       }
     >
-      <Icon type={type} />
-      <span className={styles.number}>{count}</span>
+      <Icon type={type} small />
+      <span className={classNames(styles.number, {
+        [styles.smallNumber]: small
+      })}
+      >{count}
+      </span>
     </div>
   </div>
 )

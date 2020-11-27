@@ -29,10 +29,11 @@ class Tally extends Component {
   }
 
   render () {
-    const { horizontal, showZero, showLabels, tally, notices } = this.props
+    const { horizontal, showZero, showLabels, tally, notices, small = false } = this.props
     const classes = {
       tally: classNames('scite-tally', styles.tally, {
         [styles.horizontal]: horizontal,
+        [styles.small]: small && horizontal,
         [styles.show]: showZero ? tally : tally && tally.total > 0
       })
     }
@@ -46,12 +47,16 @@ class Tally extends Component {
         className={classes.tally}
         onClick={this.handleClick}
       >
-        {!horizontal && <img className={styles.logo} src='https://cdn.scite.ai/assets/images/logo.svg' />}
+        {!horizontal && <img
+          className={classNames(styles.logo, {
+            [styles.logoSmall]: small
+          })} src='https://cdn.scite.ai/assets/images/logo.svg'
+        />}
 
-        <Count type='supporting' count={supporting} horizontal={horizontal} showLabels={showLabels} />
-        <Count type='mentioning' count={mentioning} horizontal={horizontal} showLabels={showLabels} />
-        <Count type='disputing' count={disputing} horizontal={horizontal} showLabels={showLabels} />
-        {notices && notices.length > 0 && <Count type='notices' count={noticeCount} horizontal={horizontal} showLabels={showLabels} />}
+        <Count type='supporting' count={supporting} horizontal={horizontal} showLabels={showLabels} small={small} />
+        <Count type='mentioning' count={mentioning} horizontal={horizontal} showLabels={showLabels} small={small} />
+        <Count type='disputing' count={disputing} horizontal={horizontal} showLabels={showLabels} small={small} />
+        {notices && notices.length > 0 && <Count type='notices' count={noticeCount} horizontal={horizontal} showLabels={showLabels} small={small} />}
       </div>
     )
   }
