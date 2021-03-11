@@ -28,9 +28,14 @@
     color: #2ECC71;
 }
 
-.notices:before {
+.retractions:before {
     content: "\e901";
     color: #FF3B30;
+}
+
+.notices:before {
+    content: "\e90a";
+    color: #82807d;
 }
 
 .smallIcon {
