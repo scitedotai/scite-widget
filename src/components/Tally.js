@@ -5,6 +5,26 @@ import Count from './Count'
 
 import styles from '../styles/Tally.css'
 
+const RETRACTED_LEMMAS = ['retract', 'withdraw', 'remove']
+
+const noticesFilter = ({ status }) => {
+  for (const retractedLemma of RETRACTED_LEMMAS) {
+    if (status && status.toLowerCase().includes(retractedLemma)) {
+      return false
+    }
+  }
+  return true
+}
+
+const retractionFilter = ({ status }) => {
+  for (const retractedLemma of RETRACTED_LEMMAS) {
+    if (status && status.toLowerCase().includes(retractedLemma)) {
+      return true
+    }
+  }
+  return false
+}
+
 class Tally extends Component {
   constructor (props) {
     super(props)
@@ -17,7 +37,7 @@ class Tally extends Component {
     const params = {
       utm_medium: isBadge ? 'badge' : 'plugin',
       utm_source: source || 'generic',
-      utm_campaign: campaign || 'badge_generic'
+      utm_campaign: campaign || isBadge ? 'badge' : 'plugin'
     }
 
     return qs.stringify(params)
@@ -40,23 +60,30 @@ class Tally extends Component {
     const supporting = (tally && tally.supporting && tally.supporting.toLocaleString()) || 0
     const disputing = (tally && tally.contradicting && tally.contradicting.toLocaleString()) || 0
     const mentioning = (tally && tally.mentioning && tally.mentioning.toLocaleString()) || 0
-    const noticeCount = (notices && notices.length && notices.length.toLocaleString()) || 0
+
+    const retractionNotices = (notices && notices.length > 0 && notices.filter(retractionFilter)) || []
+    const editorialNotices = (notices && notices.length > 0 && notices.filter(noticesFilter)) || []
+    const noticeCount = retractionNotices.length.toLocaleString() || 0
+    const retractionsCount = editorialNotices.length.toLocaleString() || 0
 
     return (
       <div
         className={classes.tally}
         onClick={this.handleClick}
       >
-        {!horizontal && <img
-          className={classNames(styles.logo, {
-            [styles.logoSmall]: small
-          })} src='https://cdn.scite.ai/assets/images/logo.svg'
-        />}
+        {!horizontal && (
+          <img
+            className={classNames(styles.logo, {
+              [styles.logoSmall]: small
+            })} src='https://cdn.scite.ai/assets/images/logo.svg'
+          />
+        )}
 
         <Count type='supporting' count={supporting} horizontal={horizontal} showLabels={showLabels} small={small} />
         <Count type='mentioning' count={mentioning} horizontal={horizontal} showLabels={showLabels} small={small} />
         <Count type='disputing' count={disputing} horizontal={horizontal} showLabels={showLabels} small={small} />
-        {notices && notices.length > 0 && <Count type='notices' count={noticeCount} horizontal={horizontal} showLabels={showLabels} small={small} />}
+        {retractionsCount > 0 && <Count type='retractions' count={retractionsCount} horizontal={horizontal} showLabels={showLabels} small={small} />}
+        {noticeCount > 0 && <Count type='notices' count={noticeCount} horizontal={horizontal} showLabels={showLabels} small={small} />}
       </div>
     )
   }
