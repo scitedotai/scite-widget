@@ -17,7 +17,7 @@ const Template = (args) => (
   <div style={{ borderRadius: '8px', border: '1px solid #cfcfcf', minHeight: '0px', maxHeight: '32px' }}>
     <Tally
       tally={tally}
-      notices={[{ status: 'retracted' }, { status: 'Has correction' }]}
+      notices={['retracted', 'Has correction']}
       {...args}
     />
   </div>)

@@ -7,7 +7,7 @@ import styles from '../styles/Tally.css'
 
 const RETRACTED_LEMMAS = ['retract', 'withdraw', 'remove']
 
-const noticesFilter = ({ status }) => {
+const noticesFilter = status => {
   for (const retractedLemma of RETRACTED_LEMMAS) {
     if (status && status.toLowerCase().includes(retractedLemma)) {
       return false
@@ -16,7 +16,7 @@ const noticesFilter = ({ status }) => {
   return true
 }
 
-const retractionFilter = ({ status }) => {
+const retractionFilter = status => {
   for (const retractedLemma of RETRACTED_LEMMAS) {
     if (status && status.toLowerCase().includes(retractedLemma)) {
       return true

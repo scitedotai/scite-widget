@@ -33,3 +33,5 @@ Right now its manual:
 $ npm run storybook-build
 ```
 Once storybook is built you can merge your code to master and it will show up on that address.
+
+To use this library you just link to it using package.json
