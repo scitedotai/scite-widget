@@ -21,3 +21,13 @@ export const TallyLoadedRetractionNotice = Template.bind({})
 TallyLoadedRetractionNotice.args = {
   doi: '10.1038/nature10167'
 }
+
+export const TallyLoadedRetraction = Template.bind({})
+TallyLoadedRetraction.args = {
+  doi: '10.1002/art.10305'
+}
+
+export const TallyLoadedNotice = Template.bind({})
+TallyLoadedNotice.args = {
+  doi: '10.1371/journal.pone.0158201'
+}

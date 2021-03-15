@@ -63,8 +63,8 @@ class Tally extends Component {
 
     const retractionNotices = (notices && notices.length > 0 && notices.filter(retractionFilter)) || []
     const editorialNotices = (notices && notices.length > 0 && notices.filter(noticesFilter)) || []
-    const noticeCount = retractionNotices.length.toLocaleString() || 0
-    const retractionsCount = editorialNotices.length.toLocaleString() || 0
+    const retractionsCount = retractionNotices.length.toLocaleString() || 0
+    const noticeCount = editorialNotices.length.toLocaleString() || 0
 
     return (
       <div
