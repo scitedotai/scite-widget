@@ -58,7 +58,7 @@ class Tally extends Component {
       })
     }
     const supporting = (tally && tally.supporting && tally.supporting.toLocaleString()) || 0
-    const disputing = (tally && tally.contradicting && tally.contradicting.toLocaleString()) || 0
+    const contrasting = (tally && tally.contradicting && tally.contradicting.toLocaleString()) || 0
     const mentioning = (tally && tally.mentioning && tally.mentioning.toLocaleString()) || 0
 
     const retractionNotices = (notices && notices.length > 0 && notices.filter(retractionFilter)) || []
@@ -81,7 +81,7 @@ class Tally extends Component {
 
         <Count type='supporting' count={supporting} horizontal={horizontal} showLabels={showLabels} small={small} />
         <Count type='mentioning' count={mentioning} horizontal={horizontal} showLabels={showLabels} small={small} />
-        <Count type='disputing' count={disputing} horizontal={horizontal} showLabels={showLabels} small={small} />
+        <Count type='contrasting' count={contrasting} horizontal={horizontal} showLabels={showLabels} small={small} />
         {retractionsCount > 0 && <Count type='retractions' count={retractionsCount} horizontal={horizontal} showLabels={showLabels} small={small} />}
         {noticeCount > 0 && <Count type='notices' count={noticeCount} horizontal={horizontal} showLabels={showLabels} small={small} />}
       </div>
