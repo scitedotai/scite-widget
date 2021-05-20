@@ -38,6 +38,11 @@
     color: #82807d;
 }
 
+.publications:before {
+    content: "\e90b";
+    color: #82807D;
+}
+
 .smallIcon {
   line-height: 1rem !important;
 }

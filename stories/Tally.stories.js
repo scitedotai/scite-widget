@@ -8,13 +8,14 @@ export default {
 }
 
 const tally = {
+  citingPublications: 3,
   supporting: 1,
   contradicting: 2,
   mentioning: 0
 }
 
 const Template = (args) => (
-  <div style={{ borderRadius: '8px', border: '1px solid #cfcfcf', minHeight: '0px', maxHeight: '32px' }}>
+  <div style={{ borderRadius: '8px', border: '1px solid #cfcfcf', height: 'min-content', width: 'min-content', padding: '0.25rem' }}>
     <Tally
       tally={tally}
       notices={['retracted', 'Has correction']}
