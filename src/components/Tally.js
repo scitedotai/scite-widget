@@ -54,9 +54,10 @@ class Tally extends Component {
       tally: classNames('scite-tally', styles.tally, {
         [styles.horizontal]: horizontal,
         [styles.small]: small && horizontal,
-        [styles.show]: showZero ? tally : tally && tally.total > 0
+        [styles.show]: showZero ? tally : tally && (tally.total > 0 || tally.citingPublications > 0)
       })
     }
+    const citingPublications = (tally && tally.citingPublications && tally.citingPublications.toLocaleString()) || 0
     const supporting = (tally && tally.supporting && tally.supporting.toLocaleString()) || 0
     const contrasting = (tally && tally.contradicting && tally.contradicting.toLocaleString()) || 0
     const mentioning = (tally && tally.mentioning && tally.mentioning.toLocaleString()) || 0
@@ -78,7 +79,7 @@ class Tally extends Component {
             })} src='https://cdn.scite.ai/assets/images/logo.svg'
           />
         )}
-
+        <Count type='publications' count={citingPublications} horizontal={horizontal} showLabels={showLabels} small={small} />
         <Count type='supporting' count={supporting} horizontal={horizontal} showLabels={showLabels} small={small} />
         <Count type='mentioning' count={mentioning} horizontal={horizontal} showLabels={showLabels} small={small} />
         <Count type='contrasting' count={contrasting} horizontal={horizontal} showLabels={showLabels} small={small} />
