@@ -32,12 +32,16 @@ class Tally extends Component {
   }
 
   get queryString () {
-    const { source, isBadge, campaign } = this.props
+    const { source, isBadge, campaign, autologin } = this.props
 
     const params = {
       utm_medium: isBadge ? 'badge' : 'plugin',
       utm_source: source || 'generic',
       utm_campaign: campaign || isBadge ? 'badge' : 'plugin'
+    }
+
+    if (autologin) {
+      params.autologin = autologin
     }
 
     return qs.stringify(params)
@@ -76,7 +80,8 @@ class Tally extends Component {
           <img
             className={classNames(styles.logo, {
               [styles.logoSmall]: small
-            })} src='https://cdn.scite.ai/assets/images/logo.svg'
+            })}
+            src='https://cdn.scite.ai/assets/images/logo.svg'
           />
         )}
         <Count type='publications' count={citingPublications} horizontal={horizontal} showLabels={showLabels} small={small} />
