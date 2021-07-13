@@ -13,7 +13,8 @@ function fetchTally ({ doi, setTally, setError, retry = 0, maxRetries = 8 } = {}
         // Then we will set a 0 tally
         setTally({
           doi,
-          total: 0
+          total: 0,
+          citingPublications: 0
         })
 
         return {}

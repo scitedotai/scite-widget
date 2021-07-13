@@ -62,3 +62,7 @@
 .small {
     padding: 0 4px;
 }
+
+.forceCollapse {
+  display: none;
+}

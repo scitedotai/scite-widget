@@ -53,12 +53,13 @@ class Tally extends Component {
   }
 
   render () {
-    const { horizontal, showZero, showLabels, tally, notices, small = false } = this.props
+    const { horizontal, showZero, forceCollapse, showLabels, tally, notices, small = false } = this.props
     const classes = {
       tally: classNames('scite-tally', styles.tally, {
         [styles.horizontal]: horizontal,
         [styles.small]: small && horizontal,
-        [styles.show]: showZero ? tally : tally && (tally.total > 0 || tally.citingPublications > 0)
+        [styles.show]: showZero ? tally : tally && (tally.total > 0 || tally.citingPublications > 0),
+        [styles.forceCollapse]: forceCollapse && tally.total === 0 && tally.citingPublications === 0
       })
     }
     const citingPublications = (tally && tally.citingPublications && tally.citingPublications.toLocaleString()) || 0
