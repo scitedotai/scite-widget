@@ -32,7 +32,7 @@ class Tally extends Component {
   }
 
   get queryString () {
-    const { source, isBadge, campaign, autologin } = this.props
+    const { source, isBadge, campaign, autologin, rewardfulID } = this.props
 
     const params = {
       utm_medium: isBadge ? 'badge' : 'plugin',
@@ -42,6 +42,10 @@ class Tally extends Component {
 
     if (autologin) {
       params.autologin = autologin
+    }
+
+    if (rewardfulID) {
+      params.via = rewardfulID
     }
 
     return qs.stringify(params)
