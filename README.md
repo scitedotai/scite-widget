@@ -24,7 +24,7 @@ $ npm run storybook
 You can use npm link to link this repo to something that depends on it.
 I.e. `npm link ../scite-widget`
 
-## Deployment
+## Sorybook Deployment
 
 You can deploy a local storybook to githubpages at https://scitedotai.github.io/scite-widget
 
@@ -34,4 +34,11 @@ $ npm run storybook-build
 ```
 Once storybook is built you can merge your code to master and it will show up on that address.
 
-To use this library you just link to it using package.json
+## Usage and Deployment
+
+```
+$ npm i
+$ npm run build
+```
+
+then make the commit and merge and it will be updated.
