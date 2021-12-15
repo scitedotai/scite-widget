@@ -46,3 +46,13 @@
 .smallIcon {
   line-height: 1rem !important;
 }
+
+.openingArrow::before {
+    content: "\e922";
+    color:  #82807D;
+}
+
+.closingCaret::before {
+    content: "\e925";
+    color:  #82807D;
+}

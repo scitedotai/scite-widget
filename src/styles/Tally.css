@@ -7,17 +7,12 @@
     line-height: 1.5;
     padding: 8px;
     padding-right: 12px;
+    padding-bottom: 0px;
 
     color: #0E1D1A;
     background-color: white;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 16px;
-
-    /* Something of a hack so we can avoid
-       setting overflow: 'hidden' on the
-       outer div whilst having a tooltip
-       translated outside of it */
-    border-radius: 8px 0 0 8px;
 
     cursor: pointer;
 
@@ -29,6 +24,15 @@
 
     display: flex;
     flex-direction: column;
+}
+
+.badgeTally {
+  /* Something of a hack so we can avoid
+    setting overflow: 'hidden' on the
+    outer div whilst having a tooltip
+    translated outside of it */
+    border-radius: 8px 0 0 0px;
+    padding-bottom: 8px;
 }
 
 .horizontal {
