@@ -4,9 +4,10 @@ import styles from '../styles/HideableTally.css'
 import Icon from './Icon'
 
 const HideableTally = ({
+  defaultShow = true,
   children
 }) => {
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(defaultShow)
 
   return (
     <div className={styles.tally}>
