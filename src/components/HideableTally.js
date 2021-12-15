@@ -4,23 +4,29 @@ import styles from '../styles/HideableTally.css'
 import Icon from './Icon'
 
 const HideableTally = ({
-  defaultShow = true,
-  children
+  children,
+  hide = false,
+  clickFn = () => {}
 }) => {
-  const [show, setShow] = useState(defaultShow)
+  const [show, setShow] = useState(!hide)
+
+  const handleClick = () => {
+    setShow(!show)
+    clickFn()
+  }
 
   return (
     <div className={styles.tally}>
       {show ? (
         <>
           {children}
-          <div className={styles.hideContainer} onClick={() => setShow(!show)}>
+          <div className={styles.hideContainer} onClick={handleClick}>
             <div className={styles.openingArrow}><Icon type='openingArrow' /></div>
             <div>hide</div>
           </div>
         </>
       ) : (
-        <div className={styles.logoContainer} onClick={() => setShow(!show)}>
+        <div className={styles.logoContainer} onClick={handleClick}>
           <div className={styles.closingArrow}>
             <Icon type='closingCaret' />
           </div>
