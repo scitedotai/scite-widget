@@ -77,6 +77,12 @@ export const TallyLoader = ({ doi, children }) => {
   const [tally, setTally] = useState(null)
   const [notices, setNotices] = useState(null)
   const [error, setError] = useState(null)
+
+  useEffect(() => {
+    fetchTally({ doi, setTally, setError })
+    fetchNotices({ doi, setNotices, setError })
+  }, [doi])
+
   return children({ tally, notices, error })
 }
 
