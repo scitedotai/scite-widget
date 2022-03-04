@@ -4,10 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode: 'development',
   watch: true,
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    'index-with-fonts': './src/index-with-fonts.js'
+  },
   output: {
     path: path.resolve('lib'),
-    filename: 'index.js',
+    filename: '[name].js',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
