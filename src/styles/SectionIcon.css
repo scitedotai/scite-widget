@@ -15,6 +15,7 @@
     width: 12px;
     transform: scale(1);
     display: inline-block !important;
+    border-radius: 4px;
 }
 
 .introduction:before {
