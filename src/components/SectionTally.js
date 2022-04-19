@@ -4,12 +4,44 @@ import classNames from 'classnames'
 import SectionTallyCount from './SectionTallyCount'
 
 import styles from '../styles/SectionTally.css'
+import { BarChart, Bar, Cell, PieChart, Pie } from 'recharts';
+
+
+const generateChartDataFromSectionTally = (tally = {}) => {
+  return [
+    {
+      name: 'Intro',
+      color: '#002AB2',
+      value: tally.introduction || 0,
+    },
+    {
+      name: 'Methods',
+      color: '#0036E5',
+      value: tally.methods || 0,
+    },
+    {
+      name: 'Results',
+      color: '#0062FF',
+      value: tally.results || 0,
+    },
+    {
+      name: 'Discussion',
+      color: '#66A3FF',
+      value: tally.discussion || 0,
+    },
+    {
+      name: 'Other',
+      color: '#9EC4F0',
+      value: tally.other || 0,
+    }
+  ]
+}
 
 const SectionTally = ({
   source, campaign, autologin, rewardfulID,
   tally, forceCollapse, showLabels,
   small = false, horizontal = false, isBadge = false, showZero = true,
-  showBarChart = true
+  showBarChart = false, showPieChart = false
 }) => {
   const params = {
     utm_medium: isBadge ? 'badge' : 'plugin',
@@ -48,6 +80,9 @@ const SectionTally = ({
     window.open(reportLink)
   }
 
+  const chartData = generateChartDataFromSectionTally(tally)
+  const showChart = showBarChart || showPieChart
+
   return (
     <div
       className={styles.sectionTallyWidget}
@@ -65,11 +100,29 @@ const SectionTally = ({
           className={styles.sectionTallyWrapper}
         >
           {showBarChart && (
-            <div>
-              <img src='https://chartio.com/assets/24e451/tutorials/charts/grouped-bar-charts/c1fde6017511bbef7ba9bb245a113c07f8ff32173a7c0d742a4e1eac1930a3c5/grouped-bar-example-1.png' />
-              <a href={reportLink} target='_blank'>View more details</a>
-            </div>
+            <BarChart width={180} height={140} data={chartData} barGap={0}>
+                <Bar dataKey="value">
+                  {
+                    chartData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry['color']}/>
+                    ))
+                  }
+                </Bar>
+              </BarChart>
           )}
+
+          {showPieChart && (
+            <PieChart width={180} height={140}>
+              <Pie data={chartData}>
+              {
+                chartData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry['color']}/>
+                ))
+              }
+              </Pie>
+            </PieChart>
+          )}
+
           <div
             className={classes.sectionTally}
           >
@@ -79,7 +132,15 @@ const SectionTally = ({
             <SectionTallyCount type='discussion' count={discussion} horizontal={horizontal} showLabels={showLabels} small={small} />
             <SectionTallyCount type='other' count={other} horizontal={horizontal} showLabels={showLabels} small={small} />
           </div>
+
         </div>
+
+        {showChart && (
+          <div className={styles.chartSubheading}>
+            <span className={styles.chartLabel}>Sections</span>
+            <a href={reportLink} target='_blank'>See more details</a>
+          </div>
+        )}
     </div>
   )
 }

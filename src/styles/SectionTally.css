@@ -74,3 +74,14 @@
 .forceCollapse {
   display: none;
 }
+
+.chartSubheading {
+    text-align: center;
+    width: 180px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.chartLabel {
+    display: block;
+    font-weight: 600;
+}

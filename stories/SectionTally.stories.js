@@ -59,3 +59,15 @@ SmallHorizontalLabels.args = {
   small: true,
   showLabels: true
 }
+
+export const SectionTallyWithBarChart = Template.bind({})
+SectionTallyWithBarChart.args = {
+  showLabels: true,
+  showBarChart: true
+}
+
+export const SectionTallyWithPieChart = Template.bind({})
+SectionTallyWithPieChart.args = {
+  showLabels: true,
+  showPieChart: true
+}
