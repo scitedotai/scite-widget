@@ -1,15 +1,9 @@
 import React from 'react'
 import classNames from 'classnames'
 import SectionIcon from './SectionIcon'
+import { renderSectionType } from '../util/sectionTally'
 import styles from '../styles/Count.css'
 
-
-const renderSectionType = (type) => {
-  if (type === 'introduction') {
-    return 'Intro'
-  }
-  return type
-}
 
 export const SectionTallyCount = ({ className, horizontal, type, count, showLabels = false, small = false }) => (
   <div

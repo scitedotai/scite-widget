@@ -3,6 +3,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.sectionTallyWidget {
+    padding: 8px;
+}
+
 .sectionTallyWidget:hover {
     background-color: #F4F4F4 !important;
 }
@@ -14,7 +18,6 @@
 
 .tally {
     line-height: 1.5;
-    padding: 8px;
     padding-right: 12px;
     padding-bottom: 0px;
 
@@ -79,6 +82,7 @@
     text-align: center;
     width: 180px;
     font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
 }
 
 .chartLabel {

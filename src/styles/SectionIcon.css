@@ -1,4 +1,4 @@
-.icon {
+.sectionIcon {
     speak: none;
     font-style: normal !important;
     font-weight: normal !important;
@@ -8,7 +8,7 @@
     display: inline-block !important;
 }
 
-.icon:before {
+.sectionIcon:before {
     color: white;
     padding: 2px 4px;
     text-align: center;
@@ -43,6 +43,6 @@
     background: #9EC4F0;
 }
 
-.smallIcon {
+.smallSectionIcon {
   line-height: 1 !important;
 }

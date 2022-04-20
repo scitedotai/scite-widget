@@ -5,43 +5,14 @@ import SectionTallyCount from './SectionTallyCount'
 
 import styles from '../styles/SectionTally.css'
 import { BarChart, Bar, Cell, PieChart, Pie } from 'recharts';
+import { generateChartDataFromSectionTally } from '../util/sectionTally'
 
-
-const generateChartDataFromSectionTally = (tally = {}) => {
-  return [
-    {
-      name: 'Intro',
-      color: '#002AB2',
-      value: tally.introduction || 0,
-    },
-    {
-      name: 'Methods',
-      color: '#0036E5',
-      value: tally.methods || 0,
-    },
-    {
-      name: 'Results',
-      color: '#0062FF',
-      value: tally.results || 0,
-    },
-    {
-      name: 'Discussion',
-      color: '#66A3FF',
-      value: tally.discussion || 0,
-    },
-    {
-      name: 'Other',
-      color: '#9EC4F0',
-      value: tally.other || 0,
-    }
-  ]
-}
 
 const SectionTally = ({
   source, campaign, autologin, rewardfulID,
   tally, forceCollapse, showLabels,
   small = false, horizontal = false, isBadge = false, showZero = true,
-  showBarChart = false, showPieChart = false
+  showBarChart = false, showPieChart = false, showLogo = true
 }) => {
   const params = {
     utm_medium: isBadge ? 'badge' : 'plugin',
@@ -87,7 +58,7 @@ const SectionTally = ({
     <div
       className={styles.sectionTallyWidget}
     >
-        {!horizontal && (
+        {(!horizontal && showLogo) && (
           <img
             className={classNames(styles.logo, {
               [styles.logoSmall]: small
