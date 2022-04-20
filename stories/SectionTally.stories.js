@@ -14,7 +14,7 @@ const tally = {
     methods: 81,
     discussion: 1063,
     other: 1409,
-    doi: "10.1136/bmj.321.7258.405"
+    doi: "10.1016/j.biopsych.2005.08.012"
 }
 
 const Template = (args) => (

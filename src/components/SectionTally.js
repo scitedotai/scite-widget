@@ -72,7 +72,7 @@ const SectionTally = ({
         >
           {showBarChart && (
             <BarChart width={180} height={140} data={chartData} barGap={0}>
-                <Bar dataKey="value">
+                <Bar dataKey="value" isAnimationActive={false}>
                   {
                     chartData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry['color']}/>
@@ -84,7 +84,7 @@ const SectionTally = ({
 
           {showPieChart && (
             <PieChart width={180} height={140}>
-              <Pie data={chartData}>
+              <Pie data={chartData} isAnimationActive={false}>
               {
                 chartData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry['color']}/>
