@@ -4,8 +4,8 @@ import classNames from 'classnames'
 import SectionTallyCount from './SectionTallyCount'
 
 import styles from '../styles/SectionTally.css'
-import { Cell, PieChart, Pie } from 'recharts'
 import BarChart from './BarChart'
+import PieChart from './PieChart'
 import { generateChartDataFromSectionTally } from '../util/sectionTally'
 
 const SectionTally = ({
@@ -75,15 +75,7 @@ const SectionTally = ({
         )}
 
         {showPieChart && (
-          <PieChart width={180} height={140}>
-            <Pie data={chartData} isAnimationActive={false} animationDuration={0}>
-              {
-                chartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))
-              }
-            </Pie>
-          </PieChart>
+          <PieChart chartWidth={180} chartHeight={140} data={chartData} />
         )}
 
         <div
