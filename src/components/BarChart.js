@@ -31,7 +31,7 @@ const BarGroup = ({
 
 const BarChart = ({ chartWidth, chartHeight, data }) => {
   const barWidth = 25
-  const largestColHeight = Math.max.apply(Math, data.map(function (o) { return o.value }))
+  const largestColHeight = Math.max.apply(Math, data.map( o => o.value))
   const barGroups = data.map((col, i) => (
     <g key={`bar_${i}`} transform={`translate(${i * barWidth}, 0)`}>
       <BarGroup col={col} barWidth={barWidth} chartHeight={chartHeight} largestColHeight={largestColHeight} />

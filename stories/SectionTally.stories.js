@@ -8,12 +8,12 @@ export default {
 }
 
 const tally = {
-  total: 4749,
-  introduction: 1555,
-  results: 166,
-  methods: 81,
-  discussion: 1063,
-  other: 1409,
+  total: 342,
+  introduction: 90,
+  results: 8,
+  methods: 13,
+  discussion: 98,
+  other: 108,
   doi: '10.1016/j.biopsych.2005.08.012'
 }
 
