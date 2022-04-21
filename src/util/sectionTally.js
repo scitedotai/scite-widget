@@ -34,3 +34,8 @@ export const renderSectionType = (type) => {
   }
   return type
 }
+
+export const CHART_TYPES = {
+  PIE: 'pie',
+  BAR: 'bar'
+}

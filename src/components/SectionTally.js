@@ -6,13 +6,13 @@ import SectionTallyCount from './SectionTallyCount'
 import styles from '../styles/SectionTally.css'
 import BarChart from './BarChart'
 import PieChart from './PieChart'
-import { generateChartDataFromSectionTally } from '../util/sectionTally'
+import { generateChartDataFromSectionTally, CHART_TYPES } from '../util/sectionTally'
 
 const SectionTally = ({
   source, campaign, autologin, rewardfulID,
   tally, forceCollapse, showLabels,
   small = false, horizontal = false, isBadge = false, showZero = true,
-  showBarChart = false, showPieChart = false, showLogo = true
+  chartType = null, showLogo = true
 }) => {
   const params = {
     utm_medium: isBadge ? 'badge' : 'plugin',
@@ -52,7 +52,7 @@ const SectionTally = ({
   }
 
   const chartData = generateChartDataFromSectionTally(tally)
-  const showChart = showBarChart || showPieChart
+  const showChart = Object.values(CHART_TYPES).includes(chartType)
 
   return (
     <div
@@ -70,11 +70,11 @@ const SectionTally = ({
         onClick={handleClick}
         className={styles.sectionTallyWrapper}
       >
-        {showBarChart && (
+        {chartType === 'bar' && (
           <BarChart chartWidth={180} chartHeight={140} data={chartData} />
         )}
 
-        {showPieChart && (
+        {chartType === 'pie' && (
           <PieChart chartWidth={180} chartHeight={140} data={chartData} />
         )}
 

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { SectionTally } from '../src'
+import { CHART_TYPES } from '../src/util/sectionTally'
 
 export default {
   title: 'SectionTally',
@@ -63,11 +64,11 @@ SmallHorizontalLabels.args = {
 export const SectionTallyWithBarChart = Template.bind({})
 SectionTallyWithBarChart.args = {
   showLabels: true,
-  showBarChart: true
+  chartType: CHART_TYPES.BAR
 }
 
 export const SectionTallyWithPieChart = Template.bind({})
 SectionTallyWithPieChart.args = {
   showLabels: true,
-  showPieChart: true
+  chartType: CHART_TYPES.PIE
 }
