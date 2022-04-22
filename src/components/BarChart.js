@@ -30,7 +30,7 @@ const BarGroup = ({
 }
 
 const BarChart = ({ chartWidth, chartHeight, data }) => {
-  const barWidth = 25
+  const barWidth = 30
   const largestValue = Math.max.apply(Math, data.map(o => o.value))
   const barGroups = data.map((col, i) => (
     <g key={`bar_${i}`} transform={`translate(${i * barWidth}, 0)`}>
@@ -40,7 +40,7 @@ const BarChart = ({ chartWidth, chartHeight, data }) => {
 
   const xAdjustment = (chartWidth - (barWidth * data.length)) / 2
   return (
-    <svg width={chartWidth} height={chartHeight}>
+    <svg width={chartWidth} height={chartHeight} style={{ marginRight: '25px' }}>
       <g>
         <g transform={`translate(${xAdjustment}, 0)`}>
           {barGroups}

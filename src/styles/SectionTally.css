@@ -80,9 +80,10 @@
 
 .chartSubheading {
     text-align: center;
-    width: 180px;
+    width: 140px;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 12px;
+    margin-top: 4px;
 }
 
 .chartLabel {

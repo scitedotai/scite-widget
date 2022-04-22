@@ -71,11 +71,11 @@ const SectionTally = ({
         className={styles.sectionTallyWrapper}
       >
         {chartType === 'bar' && (
-          <BarChart chartWidth={180} chartHeight={140} data={chartData} />
+          <BarChart chartWidth={140} chartHeight={140} data={chartData} />
         )}
 
         {chartType === 'pie' && (
-          <PieChart chartWidth={180} chartHeight={140} data={chartData} />
+          <PieChart chartWidth={140} chartHeight={140} data={chartData} />
         )}
 
         <div

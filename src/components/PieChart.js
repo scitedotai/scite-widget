@@ -68,7 +68,7 @@ const PieChart = ({ chartWidth, chartHeight, data }) => {
   const sections = generateSectionPaths(slicesWithPercentages)
 
   return (
-    <svg width={chartWidth} height={chartHeight} viewBox='-1 -1 2 2'>
+    <svg width={chartWidth} height={chartHeight} viewBox='-1 -1 2 2' style={{ marginRight: '25px' }}>
       {sections}
     </svg>
   )
