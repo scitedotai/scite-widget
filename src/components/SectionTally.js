@@ -53,6 +53,9 @@ const SectionTally = ({
 
   const chartData = generateChartDataFromSectionTally(tally)
   const showChart = Object.values(CHART_TYPES).includes(chartType)
+  if (chartType && !showChart) {
+    console.warn(`Received unexpected chartType: ${chartType}. Must be 'pie', 'bar', or null.`)
+  }
 
   return (
     <div
