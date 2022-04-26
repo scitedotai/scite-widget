@@ -4,7 +4,7 @@ import SectionIcon from './SectionIcon'
 import { renderSectionType } from '../util/sectionTally'
 import styles from '../styles/Count.css'
 
-export const SectionTallyCount = ({ className, horizontal, type, count, showLabels = false, small = false }) => (
+const SectionTallyCount = ({ className, horizontal, type, count, showLabels = false, small = false }) => (
   <div
     className={
       classNames(styles.count, className, {

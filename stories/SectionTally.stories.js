@@ -73,6 +73,12 @@ SectionTallyWithPieChart.args = {
   chartType: CHART_TYPES.PIE
 }
 
+export const SectionTallyWithDonutChart = Template.bind({})
+SectionTallyWithDonutChart.args = {
+  showLabels: true,
+  chartType: CHART_TYPES.DONUT
+}
+
 export const SectionTallyWithPieChartNoLogo = Template.bind({})
 SectionTallyWithPieChartNoLogo.args = {
   showLabels: true,

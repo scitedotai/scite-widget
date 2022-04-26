@@ -6,6 +6,7 @@ import SectionTallyCount from './SectionTallyCount'
 import styles from '../styles/SectionTally.css'
 import BarChart from './BarChart'
 import PieChart from './PieChart'
+import DonutChart from './DonutChart'
 import { generateChartDataFromSectionTally, CHART_TYPES } from '../util/sectionTally'
 
 const SectionTally = ({
@@ -74,11 +75,15 @@ const SectionTally = ({
         className={styles.sectionTallyWrapper}
       >
         {chartType === 'bar' && (
-          <BarChart chartWidth={140} chartHeight={140} data={chartData} />
+          <BarChart chartWidth={140} chartHeight={130} data={chartData} />
         )}
 
         {chartType === 'pie' && (
           <PieChart chartWidth={140} chartHeight={140} data={chartData} />
+        )}
+
+        {chartType === 'donut' && (
+          <DonutChart data={chartData} size={140} />
         )}
 
         <div

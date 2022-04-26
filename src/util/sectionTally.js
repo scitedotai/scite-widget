@@ -37,5 +37,6 @@ export const renderSectionType = (type) => {
 
 export const CHART_TYPES = {
   PIE: 'pie',
-  BAR: 'bar'
+  BAR: 'bar',
+  DONUT: 'donut'
 }
