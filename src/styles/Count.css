@@ -16,6 +16,11 @@
 }
 
 .iconCountWrapper {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.sectionTallyIconCountWrapper {
     display: flex;
     box-sizing: border-box;
 }
@@ -48,7 +53,7 @@
     width: auto;
 }
 
-.horizontal > .iconCountWrapper > .label {
+.horizontal > .sectionTallyIconCountWrapper > .label {
     width: auto;
     vertical-align: middle;
 }

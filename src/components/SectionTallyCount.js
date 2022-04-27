@@ -15,7 +15,7 @@ const SectionTallyCount = ({ className, horizontal, type, count, showLabels = fa
   >
     <div
       className={
-        classNames(styles.iconCountWrapper, {
+        classNames(styles.sectionTallyIconCountWrapper, {
           [styles.expandedIconCount]: !showLabels
         })
       }
