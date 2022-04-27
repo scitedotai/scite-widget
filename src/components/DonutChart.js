@@ -69,7 +69,6 @@ const coords = (deg, r, center) => {
 }
 
 const makeSegment = ({ chartConfig, paths, subtotal }, { percent, color }, i) => {
-  console.log('WTF?: ', chartConfig)
   const startAngle = subtotal * 360 + 90 // +90 so we start at 12 o'clock
   const endAngle = startAngle + percent * 360
 
