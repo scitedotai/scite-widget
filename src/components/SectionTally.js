@@ -32,7 +32,8 @@ const SectionTally = ({
   const queryString = qs.stringify(params)
 
   const classes = {
-    sectionTally: classNames('scite-section-tally', styles.tally, {
+    sectionTallyContainer: classNames('scite-section-tally', styles.sectionTallyWidget),
+    sectionTally: classNames(styles.tally, {
       [styles.horizontal]: horizontal,
       [styles.small]: small && horizontal,
       [styles.show]: showZero ? tally : tally && (tally.total > 0),
@@ -55,12 +56,12 @@ const SectionTally = ({
   const chartData = generateChartDataFromSectionTally(tally)
   const showChart = Object.values(CHART_TYPES).includes(chartType)
   if (chartType && !showChart) {
-    console.warn(`Received unexpected chartType: ${chartType}. Must be 'pie', 'bar', or null.`)
+    console.warn(`Received unexpected chartType: ${chartType}. Must be 'pie', 'bar', 'donut', or null.`)
   }
 
   return (
     <div
-      className={styles.sectionTallyWidget}
+      className={classes.sectionTallyContainer}
     >
       {(!horizontal && showLogo) && (
         <img
