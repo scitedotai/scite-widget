@@ -28,7 +28,8 @@ const retractionFilter = status => {
 const Tally = ({
   source, campaign, autologin, rewardfulID,
   tally, forceCollapse, showLabels, notices,
-  small = false, horizontal = false, isBadge = false, showZero = true
+  small = false, horizontal = false, isBadge = false, showZero = true,
+  showLogo = true
 }) => {
   const params = {
     utm_medium: isBadge ? 'badge' : 'plugin',
@@ -74,7 +75,7 @@ const Tally = ({
       className={classes.tally}
       onClick={handleClick}
     >
-      {!horizontal && (
+      {(!horizontal && showLogo) && (
         <img
           className={classNames(styles.logo, {
             [styles.logoSmall]: small

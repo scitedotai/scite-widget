@@ -7,14 +7,16 @@
     display: inline-block;
     width: 82px;
     margin-right: 12px;
+    text-transform: capitalize;
 }
 
 .smallLabel {
     margin-right: 6px;
+    text-transform: capitalize;
 }
 
 .iconCountWrapper {
-    display: inline-block;
+    display: flex;
     box-sizing: border-box;
 }
 
@@ -44,6 +46,11 @@
 
 .horizontal > .label {
     width: auto;
+}
+
+.horizontal > .iconCountWrapper > .label {
+    width: auto;
+    vertical-align: middle;
 }
 
 .small {
